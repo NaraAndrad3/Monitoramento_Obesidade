@@ -1,0 +1,24 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+<div class= "container">
+    {% if mensagem %}
+        {% if mensagem == "Insufficient_Weight" %}
+            <p> Abaixo do peso </p>
+        {% elif mensagem == "Normal_Weight" %}
+            <p>Peso normal</p>
+        {% elif mensagem == "Overweight_Level_I" %}
+            <p>Sobrepeso nível I</p>
+        {% elif mensagem == "Overweight_Level_II" %}
+            <p>Sobrepeso nível II</p>
+        {% elif mensagem == "Obesity_Type_I" %}
+            <p>Obesidade tipo I</p>
+        {% elif mensagem == "Obesity_Type_II" %}
+            <p>Obesidade tipo II</p>
+        {% elif mensagem == "Obesity_Type_III" %}
+            <p>Obesidade tipo III</p>
+        {% else %}
+            <p>Resultado da predição: {{ mensagem }}</p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

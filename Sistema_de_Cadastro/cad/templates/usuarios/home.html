@@ -1,0 +1,65 @@
+{% extends 'usuarios/base.html'%}
+{% block conteudo%}
+<form action = "{%url 'listagem_usuarios'%}" method = "post">
+    {% csrf_token%}
+    <div style = "text-align: center;" calss = "conatiner">
+        <h1>Formulário de Avaliação</h1>
+
+        <div>
+            Genero  <input name = "genero" class= "form-control-sm" type = "text">
+        </div>
+
+        <div>
+            Idade <input name = "idade" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            altura <input name = "altura" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            peso <input name = "peso" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            Um membro da família sofreu ou sofre de excesso de peso? <input name = "family" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            Você come alimentos calóricos com frequência? <input name = "FAVC" class= "form-control-sm" type = "text"></div>
+        
+        <div>
+            Você costuma comer vegetais em suas refeições?	 <input name = "FCVC" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            Quantas refeições principais você tem diariamente? <input name = "NCP" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+        </div>
+        <div>
+            Você come alguma comida entre as refeições? <input name = "CAEC" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            Você fuma? <input name = "SMOKE" class= "form-control-sm" type = "text">
+        </div> 
+        <div>
+            Quanta água você bebe diariamente? <input name = "CH2O" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            Você monitora as calorias que você come diariamente? <input name = "SCC" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            Com que frequência você tem atividade física? <input name = "FAF" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            Tempo diario de uso de telas? <input name = "TUE" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            Com que frequência você bebe álcool? <input name = "CALC" class= "form-control-sm" type = "text">
+        </div>
+        <div>
+            Qual transporte você costuma usar? <input name = "MTRANS" class= "form-control-sm" type = "text">
+        </div>
+
+        <button class= "form-control-sm">Enviar</button>
+    
+    </div>
+</form>
+{%endblock%}
+      

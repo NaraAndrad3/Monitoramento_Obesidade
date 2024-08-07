@@ -1,24 +1,39 @@
 {% extends 'usuarios/base.html' %}
 {% block conteudo %}
-<div class= "container">
-    {% if mensagem %}
-        {% if mensagem == "Insufficient_Weight" %}
-            <p> Abaixo do peso </p>
-        {% elif mensagem == "Normal_Weight" %}
-            <p>Peso normal</p>
-        {% elif mensagem == "Overweight_Level_I" %}
-            <p>Sobrepeso nível I</p>
-        {% elif mensagem == "Overweight_Level_II" %}
-            <p>Sobrepeso nível II</p>
-        {% elif mensagem == "Obesity_Type_I" %}
-            <p>Obesidade tipo I</p>
-        {% elif mensagem == "Obesity_Type_II" %}
-            <p>Obesidade tipo II</p>
-        {% elif mensagem == "Obesity_Type_III" %}
-            <p>Obesidade tipo III</p>
-        {% else %}
-            <p>Resultado da predição: {{ mensagem }}</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Predição</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        {% if mensagem %}
+            <div class="alert {% if mensagem == 'Insufficient_Weight' %}alert-warning{% elif mensagem == 'Normal_Weight' %}alert-success{% elif mensagem == 'Overweight_Level_I' or mensagem == 'Overweight_Level_II' %}alert-warning{% elif mensagem == 'Obesity_Type_I' or mensagem == 'Obesity_Type_II' or mensagem == 'Obesity_Type_III' %}alert-danger{% else %}alert-info{% endif %}">
+                <h4 class="alert-heading">
+                    {% if mensagem == "Insufficient_Weight" %}
+                        Abaixo do peso
+                    {% elif mensagem == "Normal_Weight" %}
+                        Peso normal
+                    {% elif mensagem == "Overweight_Level_I" %}
+                        Sobrepeso nível I
+                    {% elif mensagem == "Overweight_Level_II" %}
+                        Sobrepeso nível II
+                    {% elif mensagem == "Obesity_Type_I" %}
+                        Obesidade tipo I
+                    {% elif mensagem == "Obesity_Type_II" %}
+                        Obesidade tipo II
+                    {% elif mensagem == "Obesity_Type_III" %}
+                        Obesidade tipo III
+                    {% else %}
+                        Resultado da predição: {{ mensagem }}
+                    {% endif %}
+                </h4>
+            </div>
         {% endif %}
-    {% endif %}
-</div>
+    </div>
+</body>
+</html>
 {% endblock %}

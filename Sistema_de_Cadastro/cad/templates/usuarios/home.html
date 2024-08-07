@@ -1,65 +1,230 @@
-{% extends 'usuarios/base.html'%}
-{% block conteudo%}
-<form action = "{%url 'listagem_usuarios'%}" method = "post">
-    {% csrf_token%}
-    <div style = "text-align: center;" calss = "conatiner">
-        <h1>Formulário de Avaliação</h1>
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+<form action="{% url 'listagem_usuarios' %}" method="post">
+    {% csrf_token %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Formulário de Avaliação</h1>
 
-        <div>
-            Genero  <input name = "genero" class= "form-control-sm" type = "text">
-        </div>
-
-        <div>
-            Idade <input name = "idade" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            altura <input name = "altura" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            peso <input name = "peso" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            Um membro da família sofreu ou sofre de excesso de peso? <input name = "family" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            Você come alimentos calóricos com frequência? <input name = "FAVC" class= "form-control-sm" type = "text"></div>
-        
-        <div>
-            Você costuma comer vegetais em suas refeições?	 <input name = "FCVC" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            Quantas refeições principais você tem diariamente? <input name = "NCP" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-        </div>
-        <div>
-            Você come alguma comida entre as refeições? <input name = "CAEC" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            Você fuma? <input name = "SMOKE" class= "form-control-sm" type = "text">
-        </div> 
-        <div>
-            Quanta água você bebe diariamente? <input name = "CH2O" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            Você monitora as calorias que você come diariamente? <input name = "SCC" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            Com que frequência você tem atividade física? <input name = "FAF" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            Tempo diario de uso de telas? <input name = "TUE" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            Com que frequência você bebe álcool? <input name = "CALC" class= "form-control-sm" type = "text">
-        </div>
-        <div>
-            Qual transporte você costuma usar? <input name = "MTRANS" class= "form-control-sm" type = "text">
+        <div class="mb-3">
+            <label class="form-label">Gênero</label>
+            <div class="form-check">
+                <input type="radio" name="genero" class="form-check-input" value="0" id="generoFeminino">
+                <label class="form-check-label" for="generoFeminino">Feminino</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="genero" class="form-check-input" value="1" id="generoMasculino">
+                <label class="form-check-label" for="generoMasculino">Masculino</label>
+            </div>
         </div>
 
-        <button class= "form-control-sm">Enviar</button>
-    
+        <div class="mb-3">
+            <label for="idade" class="form-label">Idade</label>
+            <input name="idade" id="idade" class="form-control" type="text">
+        </div>
+
+        <div class="mb-3">
+            <label for="altura" class="form-label">Altura</label>
+            <input name="altura" id="altura" class="form-control" type="text">
+        </div>
+
+        <div class="mb-3">
+            <label for="peso" class="form-label">Peso</label>
+            <input name="peso" id="peso" class="form-control" type="text">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Um membro da família sofreu ou sofre de excesso de peso?</label>
+            <div class="form-check">
+                <input type="radio" name="family" class="form-check-input" value="1" id="familySim">
+                <label class="form-check-label" for="familySim">Sim</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="family" class="form-check-input" value="0" id="familyNao">
+                <label class="form-check-label" for="familyNao">Não</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Você come alimentos calóricos com frequência?</label>
+            <div class="form-check">
+                <input type="radio" name="FAVC" class="form-check-input" value="1" id="favcSim">
+                <label class="form-check-label" for="favcSim">Sim</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="FAVC" class="form-check-input" value="0" id="favcNao">
+                <label class="form-check-label" for="favcNao">Não</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Você costuma comer vegetais em suas refeições?</label>
+            <div class="form-check">
+                <input type="radio" name="FCVC" class="form-check-input" value="1" id="fcvcNunca">
+                <label class="form-check-label" for="fcvcNunca">Nunca</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="FCVC" class="form-check-input" value="2" id="fcvcAsVezes">
+                <label class="form-check-label" for="fcvcAsVezes">As vezes</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="FCVC" class="form-check-input" value="2" id="fcvcSempre">
+                <label class="form-check-label" for="fcvcSempre">Sempre</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Quantas refeições principais você tem diariamente?</label>
+            <div class="form-check">
+                <input type="radio" name="NCP" class="form-check-input" value="1" id="NCP1">
+                <label class="form-check-label" for="NCP1">1</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="NCP" class="form-check-input" value="2" id="NCP2">
+                <label class="form-check-label" for="NCP2">2</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="NCP" class="form-check-input" value="3" id="NCP3">
+                <label class="form-check-label" for="NCP3">3</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="NCP" class="form-check-input" value="4" id="NCP4">
+                <label class="form-check-label" for="NCP2">Mais de 3 refeições</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Você come alguma comida entre as refeições?</label>
+            <div class="form-check">
+                <input type="radio" name="CAEC" class="form-check-input" value="1" id="caecSim">
+                <label class="form-check-label" for="caecSim">Sim</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="CAEC" class="form-check-input" value="0" id="caecNao">
+                <label class="form-check-label" for="caecNao">Não</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Você fuma?</label>
+            <div class="form-check">
+                <input type="radio" name="SMOKE" class="form-check-input" value="1" id="smokeSim">
+                <label class="form-check-label" for="smokeSim">Sim</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="SMOKE" class="form-check-input" value="0" id="smokeNao">
+                <label class="form-check-label" for="smokeNao">Não</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Quanta água você bebe diariamente?</label>
+            <div class="form-check">
+                <input type="radio" name="CH2O" class="form-check-input" value="1" id="ch2oLass">
+                <label class="form-check-label" for="ch2oLass">Lass then a liter</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="CH2O" class="form-check-input" value="2" id="ch2oBetween">
+                <label class="form-check-label" for="ch2oBetween">Between 1 and 2L</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="CH2O" class="form-check-input" value="3" id="ch2oMore">
+                <label class="form-check-label" for="ch2oMore">More than 2L</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Você monitora as calorias que você come diariamente?</label>
+            <div class="form-check">
+                <input type="radio" name="SCC" class="form-check-input" value="1" id="sccSim">
+                <label class="form-check-label" for="sccSim">Sim</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="SCC" class="form-check-input" value="0" id="sccNao">
+                <label class="form-check-label" for="sccNao">Não</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Com que frequência você tem atividade física?</label>
+            <div class="form-check">
+                <input type="radio" name="FAF" class="form-check-input" value="0" id="fafN">
+                <label class="form-check-label" for="fafN">Não pratica</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="FAF" class="form-check-input" value="1" id="faf1">
+                <label class="form-check-label" for="faf1">1 ou 2 dias</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="FAF" class="form-check-input" value="2" id="faf2">
+                <label class="form-check-label" for="faf2">2 ou 4 dias</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="FAF" class="form-check-input" value="2" id="faf3">
+                <label class="form-check-label" for="faf3">4 ou 5 dias</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Tempo diário de uso de telas?</label>
+            <div class="form-check">
+                <input type="radio" name="TUE" class="form-check-input" value="0" id="tue0">
+                <label class="form-check-label" for="tue0">0 a 2 horas</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="TUE" class="form-check-input" value="1" id="tue1">
+                <label class="form-check-label" for="tue1">3 a 5 horas</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="TUE" class="form-check-input" value="2" id="tue2">
+                <label class="form-check-label" for="tue2">Mais de 5 horas</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Com que frequência você bebe álcool?</label>
+            <div class="form-check">
+                <input type="radio" name="CALC" class="form-check-input" value="0" id="calcSempre">
+                <label class="form-check-label" for="calcSempre">Sempre</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="CALC" class="form-check-input" value="1" id="calcFreq">
+                <label class="form-check-label" for="calcFreq">Com Frequencia</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="CALC" class="form-check-input" value="2" id="calcAsVezes">
+                <label class="form-check-label" for="calcAsVezes">As Vezes</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="CALC" class="form-check-input" value="2" id="calcNao">
+                <label class="form-check-label" for="calcNão">Não bebo</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Qual transporte você costuma usar?</label>
+            <div class="form-check">
+                <input type="radio" name="MTRANS" class="form-check-input" value="0" id="mtransA">
+                <label class="form-check-label" for="mtransA">Automovel</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="MTRANS" class="form-check-input" value="1" id="mtransB">
+                <label class="form-check-label" for="mtransB">Bicicleta</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="MTRANS" class="form-check-input" value="1" id="mtransM">
+                <label class="form-check-label" for="mtransM">Moto</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="MTRANS" class="form-check-input" value="1" id="mtransTP">
+                <label class="form-check-label" for="mtransTP">Transporte Público</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="MTRANS" class="form-check-input" value="1" id="mtransPE">
+                <label class="form-check-label" for="mtransPE">A pé</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Enviar</button>
     </div>
 </form>
-{%endblock%}
-      
+{% endblock %}
